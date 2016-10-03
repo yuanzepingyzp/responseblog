@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>袁泽平的博客</title>
+    <link  type="text/css" rel="stylesheet" href="style.css">
+   <meta name="viewport" content="width=device-width,initial-scale=1">
+   
+
+</head>
+<body>
+        
+    
+    <section id="leftBox">
+        <div id="blogMenu">
+            <div id="blogMenuHeader"><canvas width="40" height="40" id="blogNumber"></canvas><span>blog</span><canvas height="40" width="40" id="triangle"></canvas></div>
+            <ul>
+                <li rel='"html总结"' class="active">Html总结</li>
+                <li rel='"css总结"'>Css总结</li>
+                <li rel='"javascript总结"'>Javascript总结</li>
+                <li rel='"框架使用心得"'>框架使用心得</li>
+                <li rel='"设计随笔"'>设计随笔</li>
+            </ul>
+        </div>
+    </section>
+    
+        <section id="rightBox">
+            <h2>袁泽平的博客</h2>
+        <img src="image/weixing.png">
+        <img src="image/qq.png">
+        <img src="image/xinglang.png">
+    </section>
+    
+    <section id="middleBox">
+        <header>
+            <img src="image/p2.jpg">
+            <div id="headerText">
+                <ul>
+                <li><a href="#">首页</a></li>
+                <li><a href="http://yuanzeping.github" target="_blank">Github</a></li>
+                <li><a href="http://yuanzeping.github.io" target="_blank">简历</a></li>
+                <li><a href="http://yuanzeping.github.io" target="_blank">关于我</a></li>
+            </ul>
+                 <h1>文以载道</h1>
+            </div>
+            <img src="image/photo.png">
+        </header>
+        <article class="note">
+            <div>
+                <h1 id="articleTitle"></h1>
+                <div id="articleContent"></div>
+                <div id="articleComment"></div>
+            </div>
+        </article>  
+    </section>
+
+ <section id="comment">
+            <div id="commentButton"><canvas height="40" width="40" id="commentNumber"></canvas><span>comment</span><canvas id="commentLogo" width="40" height="40"></canvas></div>
+        <div id="commentBox">
+            <form action="comment.php" method="post">
+                <div>
+                    <input placeholder="姓名" name="name">
+                    <br>
+                    <br>
+                    <input placeholder="电话" name="phone">
+                    <br>
+                    <br>
+                    <input placeholder="邮箱" name="email">
+                    <br>
+                    <br>
+                    <input type="submit" value="提交">
+                    <input type="reset" value="重置">
+                </div>
+                <textarea name="content"></textarea>
+                <article><h1><b>温馨提示</b></h1>
+    
+                </article>
+            </form>
+        </div>
+        </section>
+    
+                
+    
+    
+     <script src="action.js"></script>
+</body>
+</html>
