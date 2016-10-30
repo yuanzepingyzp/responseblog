@@ -1,2 +1,0 @@
-# responseblog
-a responsible blog

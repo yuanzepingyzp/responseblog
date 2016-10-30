@@ -2,22 +2,41 @@
  * Created by zeping on 2015/11/8.
  */
 window.onload=function(){
-        blogNumber("blogNumber","white","#928f8a",getBlogNumber());
+        loadlist();
         blogNumber("commentNumber","#39566a","white","1")
         triangle();
         commentLogo("#39566a");
-        getData('server.php?data="html总结"');
         rotatetriangle();
         changecolor();
-        changecontent();
     }
+//生成列表
+function loadlist(){
+  var blogul=document.querySelector("#blogMenu ul");
+  var j=0;
+  ajax("data.json",function(data){
+    for(var i in data){
+      var li=document.createElement("li");
+      li.innerHTML=i;
+      if(j==0){
+        li.setAttribute("class","active");
+      }
+      blogul.appendChild(li);
+      j++;
+    }
+    changecontent();
+    blogNumber("blogNumber","white","#928f8a",getBlogNumber());
+    getData();
+  })
+}
 //改变内容
 function changecontent(){
     var bloglist=document.querySelectorAll("#blogMenu ul li");
+    console.log(bloglist);
     for(var i=0;i<bloglist.length;i++){
         bloglist[i].addEventListener("click",function(){
-            var selectblog=this.getAttribute("rel");
-            getData('server.php?data='+selectblog);
+          document.querySelector(".active").setAttribute("class","");
+          this.setAttribute("class","active");
+            getData();
         })
     }
 }
@@ -35,22 +54,21 @@ function changecolor(){
 function rotatetriangle(){
     var triangle=document.getElementById("triangle");
     var blogMenu=document.getElementById("blogMenu");
-    blogMenu.addEventListener("click",function(){
-        if(triangle.getAttribute("class")=="rotateUp"){
+    blogMenu.addEventListener("mouseover",function(event){
             triangle.setAttribute("class","rotateDown");
-        }else
+    });
+    blogMenu.addEventListener("mouseleave",function(event){
           triangle.setAttribute("class","rotateUp");
     });
 }
 //获取数据
-function getData(url){
-     ajax(url,function(data){
+function getData(){
+  var item=document.querySelector(".active").innerHTML;
+     ajax("data.json",function(data){
             var articleTitle=document.getElementById("articleTitle");
-            articleTitle.innerHTML=data[0].articletitle;
+            articleTitle.innerHTML=data[item].articletitle;
            var articleContent=document.getElementById("articleContent");
-            articleContent.innerHTML=data[0].articlecontent;
-           var articleComment=document.getElementById("articleComment");
-            articleComment.innerHTML=data[1].content;
+            articleContent.innerHTML=data[item].articlecontent;
     });
 }
 //ajax请求
@@ -128,6 +146,6 @@ function commentLogo(color){
 }
 //获得博客数量
 function getBlogNumber(){
-    var number=document.getElementById("blogMenu").getElementsByTagName("li").length;
+    var number=document.querySelectorAll("#blogMenu ul li").length;
     return number;
 };

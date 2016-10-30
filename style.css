@@ -1,4 +1,4 @@
-@media (min-width:500px){
+
 * {
     vertical-align: baseline;
     font-weight: inherit;
@@ -11,7 +11,10 @@
     border: 0;
     font-family: "Microsoft YaHei";
 }
-
+html{
+  font-size: 130%;
+  height: 100%;
+}
 body{
      background-image: url("image/Penguins.jpg");
     background-attachment: fixed;
@@ -24,7 +27,6 @@ body{
 /*菜单*/
 
 #leftBox{
-   position: fixed;
      width: 100%;
     z-index: 3;
  }
@@ -64,16 +66,19 @@ body{
     cursor: pointer;
 }
 #blogMenu ul li:hover{
+    background-color: rgb(160,160,160);
+}
+#blogMenu .active{
     border-bottom:2px solid #bf321d ;
 }
 #blogMenu{
-    height:40px;
+    max-height:40px;
     overflow: hidden;
-    transition: height 0.5s;
+    transition: max-height 0.5s;
 }
 
 #blogMenu:hover{
-    height: 250px;
+    max-height: 400px;
 }
 img{
     display: block;
@@ -82,21 +87,15 @@ img{
 #middleBox{
     width:90%;
   float:left;
-    margin-top: 40px;
-    margin-left: 10%;
 }
 #middleBox header{
-    position: relative;
     color: white;
     font-family: "Microsoft YaHei";
     font-weight: 600;
 }
 #headerText{
-    position: absolute;
     width: 100%;
     height: 100%;
-    top:0;
-    left: 0;
     z-index: 1;
 }
 #headerText h1{
@@ -104,36 +103,20 @@ img{
     padding-left: 2%;
     padding-top: 1%;
     font-size: 2em;
+    height: 50px;
+    background-color: rgba(230,100,50, 0.5);
 }
 #rightBox h2{
     text-align: center;
-    margin-top: -400px;
+    margin-top:-350px;
     margin-bottom: 400px;
     font-size: 18px;
     font-weight: 600;
 }
-#middleBox ul{
-    background-color: rgba(10,10,10,0.5);
-}
-#middleBox ul li{
-    list-style: none;
-    display: inline-block;
-    padding: 1% 5%;
-}
-#middleBox img[src="image/p2.jpg"]{
-    width: 100%;
-}
-#middleBox ul li:hover{
-    border-top: 5px solid rgb(130,130,130);
-}
-#middleBox ul li a{
-    text-decoration: none;
-    color: white;
-}
 
 #middleBox article{
     background-color: #292728;
-    padding: 5% 1%;
+    padding:1%;
     overflow: auto;
 }
 
@@ -146,18 +129,18 @@ img{
 
 #commentBox{
     width:100%;
-    height: 1000px;
     background-color: #292728;
 }
 
-header img[src="image/photo.png"]{
+#rightBox img[src="image/photo.png"]{
     position: absolute;
-    width: 10%;
-    left: -5%;
-    top:80%;
+    width: 70%;
+    top:10px;
+    left:0;
+    right: 0;
+    margin: auto;
     border-radius: 100px 100px 100px 100px;
-    border: 5px solid white;
-    box-shadow:-1px 0 1px black;
+    border: 2px solid rgb(200,10,10);
     z-index: 2;
 }
 
@@ -199,16 +182,17 @@ header img[src="image/photo.png"]{
 }
 
 #rightBox{
-    position: fixed;
+  position: relative;
     width:10%;
+    min-width: 50px;
    height: 100%;
     background-color:white;
     opacity:0.7;
-    margin-top: 40px;
     padding-top: 500px;
+    float: left;
 }
-#rightBox img{
-    width: 50%;
+#rightBox img:not([src="image/photo.png"]){
+    width: 50px;
     margin: 5% auto;
     cursor: pointer;
     filter:grayscale(100%);
@@ -222,7 +206,9 @@ header img[src="image/photo.png"]{
 .note h1{
     text-align: center;
     color:#e5bd0b;
+    font-size: 1.2rem;
     font-weight: 600;
+    margin-bottom: 1%;
 }
 
 .show{
@@ -230,7 +216,10 @@ header img[src="image/photo.png"]{
 }
 
 .note p{
-    margin: 1% 0;
+     font-size: 1rem;
+    text-indent: 2em;
+    font-family: "宋体";
+    margin-top: 0.5rem;
 }
 
 .note{
@@ -239,10 +228,6 @@ header img[src="image/photo.png"]{
 
 #headerText ul li:first-child{
     border-top: 5px solid #bf321d;
-}
-
-#blogMenu .active{
-    background-color: rgb(160,160,160);
 }
 
 @keyframes move {
@@ -289,326 +274,44 @@ header img[src="image/photo.png"]{
 #commentBox article{
     float: left;
     color: white;
-    width:200px;
     height: 150px;
 }
 
 #commentBox article h1{
-    text-align: center;
     color:#ffa600;
     font-size: 20px;
 
 }
+footer{
+  float: left;
+  color: white;
+  text-align: center;
+  width: 100%;
 }
-
-
-
-
-@media (max-width:500px){
-* {
-    vertical-align: baseline;
-    font-weight: inherit;
-    font-family: inherit;
-    font-style: inherit;
-    font-size: 15px;
-    outline: 0;
-    padding: 0;
-    margin: 0;
-    border: 0;
-    font-family: "Microsoft YaHei";
-}
-
-body{
-     background-image: url("image/Penguins.jpg");
-    background-attachment: fixed;
-    background-size: cover;
-    background-repeat: no-repeat;
-    overflow: auto;
-    height: 100%;
-}
-
-/*菜单*/
-
-#leftBox{
-     width: 100%;
-    z-index: 3;
-     box-shadow: 1px 1px 1px black; 
- }
-
-#blogMenuHeader{
-    width: 100%;
-    height: 40px;
-    background-color: #292728;
-}
-
-#blogMenuHeader canvas#triangle{
-    float: right;
-}
-
-#blogMenuHeader canvas#blogNumber{
+@media screen and (max-width:500px) {
+  #middleBox{
+      width:88%;
     float:left;
+  }
+  #comment{
+    width:88%;
+  }
 }
-#blogMenuHeader span{
+@media screen and (max-width:400px) {
+  #middleBox{
+      width:86%;
     float:left;
-    color: #7795a9;
-    font-family: "Microsoft YaHei";
-    font-weight: 900;
-    height: 40px;
-    line-height: 40px;
+  }
+  #comment{
+    width:86%;
+  }
 }
-
-#blogMenu li{
-    width: 100%;
-    height: 40px;
-    background-color: rgb(50,50,50);
-    text-align: center;
-    line-height: 40px;
-    font-family: "Microsoft YaHei";
-    list-style: none;
-    color: white;
-    border-bottom: 1px solid rgb(20,20,20);
-    cursor: pointer;
-}
-#blogMenu ul li:hover{
-    border-bottom:2px solid #bf321d ;
-}
-#blogMenu{
-    height:40px;
-    overflow: hidden;
-    transition: height 0.3s;
-}
-
-#blogMenu:hover{
-    height: 250px;
-}
-img{
-    display: block;
-}
-/*中栏*/
-#middleBox{
-    width:100%;
-  float:left;
-    margin-left: 0;
-}
-#middleBox header{
-    position: relative;
-    color: white;
-    font-family: "Microsoft YaHei";
-    font-weight: 600;
-}
-#headerText{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top:0;
-    left: 0;
-    z-index: 1;
-}
-#headerText h1{
-    text-align: left;
-    font-size: 15px;
-    padding-left: 2%;
-    padding-top: 1%;
-}
-
-#middleBox ul{
-    background-color: rgba(10,10,10,0.5);
-}
-#middleBox ul li{
-    list-style: none;
-    display: inline-block;
-    padding: 1% 5%;
-}
-#middleBox img[src="image/p2.jpg"]{
-    width: 100%;
-}
-#middleBox ul li:hover{
-    border-top: 5px solid rgb(130,130,130);
-}
-#middleBox ul li a{
-    text-decoration: none;
-    color: white;
-}
-
-#middleBox article{
-    background-color: #292728;
-    padding: 5% 1%;
-    overflow: auto;
-}
-
-
-#commentButton{
-    width:100%;
-    height: 40px;
-    background-color: rgb(220,220,220);
-}
-
-#commentBox{
-    width:100%;
-    height: 1000px;
-    background-color: #292728;
-}
-
-header img[src="image/photo.png"]{
-    position: absolute;
-    width: 10%;
-    left: -5%;
-    top:80%;
-    border-radius: 100px 100px 100px 100px;
-    border: 5px solid white;
-    box-shadow:-1px 0 1px black;
-    z-index: 2;
-    display: none;
-}
-
-#triangle.rotateUp{
-    animation:rotate 0.5s;
-   animation-fill-mode: forwards;
-}
-#triangle.rotateDown{
-    animation:restore 0.5s;
-    animation-fill-mode:forwards;
-}
-
-@keyframes rotate{
-    0%{transform:  rotate(0deg);}
-    100%{transform: rotate(180deg);}
-}
-
-@keyframes restore{
-    0%{transform: rotate(180deg);}
-    100%{transform:rotate(0deg);}
-}
-
-#commentButton span{
-   float: left;
-    color: #7795a9;
-    font-family: "Microsoft YaHei";
-    font-weight: 900;
-    height: 40px;
-    line-height: 40px;
-}
-
-#commentNumber{
-    float: left;
-}
-
-#commentLogo{
-    float: right;
-    cursor: pointer;
-}
-
-#rightBox{
-    position: fixed;
-     bottom: 0;
-    left: 0;
-    width:100%;
-    height: 40px;
-    background-color:#292728;
-    z-index: 3;
-   box-shadow: 1px -1px 1px black; 
-}
-#rightBox h2{
+@media screen and (max-width:350px) {
+  #middleBox{
+      width:84%;
     float:left;
-    margin: 5px 5px;
-    color: #7795a9;
-    text-align: center;
-    font-size: 18px;
-    font-weight: 600;
-}
-#rightBox img{
-    float:right;
-    margin-left: 5px;
-    margin-top: 5px;
-    width: 30px;
-    cursor: pointer;
-    filter:grayscale(100%);
-    -webkit-filter:grayscale(100%);
-}
-
-#rightBox img:hover{
-    filter: grayscale(0);
-    -webkit-filter:grayscale(0);
-}
-.note h1{
-    text-align: center;
-    color:#e5bd0b;
-    font-weight: 600;
-}
-
-.show{
-    display: block;
-}
-
-.note p{
-    font-size: 10px;
-    margin: 1% 0;
-}
-
-.note{
-    color: white;
-}
-
-#headerText ul li:first-child{
-    border-top: 5px solid #bf321d;
-}
-
-#blogMenu .active{
-    background-color: rgb(160,160,160);
-}
-
-@keyframes move {
-    0% {left:60px}
-    25%{left:0}
-    50%{left:120px}
-    100%{left: 60px}
-}
-
-/*评论区*/
-#comment{
-    float:right;
-    width: 100%;
-}
-
-#commentBox div{
-    float: left;
-    margin: 10px 10px;
-}
-#commentBox textarea{
-    float: left;
-    height: 183px;
-    margin: 10px 10px;
-}
-
-#commentBox input[placeholder]{
-    width: 100%;
-    height: 30px;
-    padding: 0 5px;
-}
-
-#commentBox input[value]{
-    width: 30%;
-    height: 30px;
-    float: left;
-}
-
-#commentBox input[type="submit"]{
-    background-color:#ffa600;
-    color: #103550;
-    margin-right: 10px;
-}
-
-#commentBox article{
-    float: left;
-    color: white;
-    width:200px;
-    height: 150px;
-}
-
-#commentBox article h1{
-    text-align: center;
-    color:#ffa600;
-    font-size: 20px;
-
-}
+  }
+  #comment{
+    width:84%;
+  }
 }
