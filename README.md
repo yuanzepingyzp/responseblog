@@ -1,2 +1,2 @@
 # responseblog
-a responsible blog
+myblog
